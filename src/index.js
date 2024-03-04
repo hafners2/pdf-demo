@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import App from './App';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import Pdfgen from './pdfgen';
+import Pdfeditor from './pdfeditor';
+import Pdfgenstart from './pdfgenstart';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Pdfeditor/>
   </React.StrictMode>
 );
 
