@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./index.css";
 import { Utils } from './utils';
 import Details from './details';
 import Canvas from './canvas';
@@ -45,7 +46,7 @@ export default function Pdfeditor() {
 
     function addLabelToTexts(e) {
         let newArr = [...addedColumns];
-        newArr.push(e.target.parentElement.children[2].value); //"firstName"
+        newArr.push(e.target.parentElement.children[1].value); //"firstName"
         setAddedColumns(newArr);
     }
 
@@ -54,18 +55,11 @@ export default function Pdfeditor() {
         <main>
             <div className="gridEditor">
                 <div className="grid-CSV">
-                    <h1>Editor Page</h1>
-                    <label htmlFor="label-input">Label: </label>
-                    <input type='text' name='label-input'></input>
-                    <button onClick={addLabelToTexts}>Add Element</button>
-                    <label htmlFor="csvInput" style={{ display: "block" }}>
-                        Enter CSV File
-                    </label>
+                    <label className="file-label" htmlFor="csvInput">Enter CSV File: </label>
                     <input
                         type="file"
                         name="file"
                         accept=".csv"
-                        style={{ display: "block", margin: "10px auto" }}
                         onChange={Utils.handleCsv}
                     />
                     <div></div>
@@ -75,14 +69,29 @@ export default function Pdfeditor() {
                     Utils.csvMeta != undefined &&
                             Utils.csvMeta.map((col, idx) => (
                                 <div key={idx} dataindex={idx}>
-                                    {col}
-                                    <button onClick={addToTexts}>Add Element</button>
+                                    <span className="csv-element">{col}</span>
+                                    <button style={{padding: "20px", width: "15%"}} onClick={addToTexts}>+</button>
                                 </div>
                             ))
                         
                         
                     }
-                    </div>
+                <label className="element-label" htmlFor="label-input">Label: </label>
+                    <input style={{borderRadius: "50px", padding: "15px"}} type='text' name='label-input'></input>
+                    <button onClick={addLabelToTexts} style={{padding: "20px", width: "15%", marginLeft: "30px"}}>+</button><br/>
+                </div>
+                
+                <div style={{marginTop: "100px"}}>
+                   
+                   <label className="file-label">Enter JSON file: </label>
+                   <input
+                       type="file"
+                       name="file"
+                       accept=".json"
+                       onChange={Utils.handleJson}
+                   />
+               </div>
+               <button onClick={Utils.print} className="generatebutton">Generate</button>
                 </div>
                 <div className="grid-canvas">
                 <Canvas

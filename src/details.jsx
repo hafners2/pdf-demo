@@ -45,9 +45,7 @@ export default function Details(props) {
   }
 
 
-
   function changeRotation(e) {
-    console.log(e.target.parentElement.children)
     if (customTextIndex >= 0) {
       let newArr = [...texts];
       newArr[customTextIndex].rotation = e.target.parentElement.children[8].value;
@@ -55,18 +53,19 @@ export default function Details(props) {
     }
   }
 
+  /*
   function addImage(e) {
     let newArr = [...images];
-    newArr.push(e.target.parentElement.children[12].value);
-    console.log("setting newArr", newArr);
+    newArr.push(e.target.parentElement.children[11].value);
     setImages(newArr);
   }
 
   function scaleImage(e) {
     let newArr = [...images];
-    newArr[customImageIndex].scale = e.target.parentElement.children[15].value;
+    newArr[customImageIndex].scale = e.target.parentElement.children[14].value;
     setImages(newArr);
   }
+  */
 
   if(customTextIndex >= 0 || customImageIndex >= 0 ) {
     var inputs = document.getElementsByName("button");
@@ -87,25 +86,16 @@ export default function Details(props) {
 
   return (
     <div className="editSidebar">
-      <HexColorPicker className="colorPicker" color={color} onChange={setColor} />
-      <label htmlFor="hex-input">Color: </label>
-      <HexColorInput color={color} onChange={changeColor} id="hex-input" name="hex-input" />
-      <button className="buttonEdit"name='button' onClick={changeColor}>Change</button>
-      {/*<button onClick={changeToBlack} >Black</button>
-      <button onClick={changeToRed}>Red</button>*/}
-      <label htmlFor="font-size">Size: </label>
-      <input type="text" name="font-size" placeholder="ex. 400 18pt Verdana"/>
-      <button className="buttonEdit" name='button' onClick={changeFontSize}>Change</button>
-      <label htmlFor="font-rotation">Rotation: </label>
-      <input type="text" name="font-rotation" />
-      <button className="buttonEdit" name='button' onClick={changeRotation}>Change</button>
-      <div className="spaceSkip"></div>
-      <label htmlFor="image">Image: </label>
-      <input type="text" className="wideInput" name="image" />
-      <button className="buttonEdit" onClick={addImage}>Add</button>
-      <label htmlFor="image-scale">Scale: </label>
-      <input type='text' className="wideInput"></input>
-      <button className="buttonEdit" onClick={scaleImage}>Scale</button>
+      <HexColorPicker className="colorPicker" color={color} onChange={setColor} style={{width:"25vw", height: "20vh", marginTop: "40px",  scrollSnapMarginBottom: "40px"}}/>
+        <label htmlFor="hex-input">Color: </label>
+        <HexColorInput color={color} onChange={changeColor} id="hex-input" name="hex-input" />
+        <button className="buttonEdit"name='button' onClick={changeColor}>Change</button>
+        <label htmlFor="font-size">Size: </label>
+        <input type="text" name="font-size" placeholder="ex. 400 18pt Verdana"/>
+        <button className="buttonEdit" name='button' onClick={changeFontSize}>Change</button>
+        <label htmlFor="font-rotation">Rotation: </label>
+        <input type="text" name="font-rotation" />
+        <button className="buttonEdit" name='button' onClick={changeRotation}>Change</button>
     </div>
   );
 };

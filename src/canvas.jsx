@@ -335,8 +335,8 @@ export default function Canvas(props) {
 
         let imgObj = {
           src: props.images[i],
-          x: 20,
-          y: 20,
+          x: 40,
+          y: 40,
           width: null,
           height: null,
           scale: 1,
@@ -347,6 +347,7 @@ export default function Canvas(props) {
         imgObj.imgObj.src = imgObj.src;
 
         newImages[i] = imgObj;
+        console.log(newImages)
 
         imgObj.imgObj.onload = function () {
           imgObj.height = imgObj.imgObj.height;
@@ -442,7 +443,7 @@ export default function Canvas(props) {
         }}
       ></canvas>
       <button onClick={downloadPDF}>Download JSON File</button>
-      <button name='button' onClick={deleteObj}>Delete</button>
+      <button name='button' onClick={deleteObj}>Clear</button>
     </div>
   );
 }

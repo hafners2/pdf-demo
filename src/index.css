@@ -1,13 +1,113 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: poppins-exlight;
+  src: url("./fonts/Poppins-ExtraLight.ttf");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: poppins-light;
+  src: url("./fonts/Poppins-Light.ttf");
+}
+
+@font-face {
+  font-family: poppins-reg;
+  src: url("./fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: poppins-med;
+  src: url("./fonts/Poppins-Medium.ttf");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+input {
+  font-family: poppins-light;
+  font-size: 1.5vh;
+}
+
+button {
+  background-color: rgb(193, 71, 0);
+  color: white;
+}
+
+.file-label {
+  font-size: 2vh;
+  color:rgb(193, 71, 0);
+}
+
+.element-label {
+  font-size: 1.5vh;
+}
+
+.csv-element {
+  font-size: 1.5vh;
+  margin-right: 20px;
+}
+
+.grid-CSV * {
+  font-family: poppins-reg;
+  margin-top: 50px;
+}
+
+.grid-CSV button {
+  font-size: 1.5vh;
+  margin-top: 60px;
+  padding: 30px;
+  border: none;
+  border-radius: 50px;
+}
+
+.gridEditor {
+  margin: 2vh auto;
+  border: 2px solid grey;
+  border-radius: 50px;
+  padding: 50px;
+  width: 80%;
+  min-width: 2000px;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.grid-canvas button {
+  font-size: 1.5vh;
+  margin-top: 20px;
+  margin-right: 30px;
+  padding: 30px;
+  border: none;
+  border-radius: 50px;
+}
+
+.editSidebar {
+  margin-left: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.editSidebar label {
+  margin-top: 40px;
+  font-size: 1.5vh;
+  font-family: poppins-reg;
+}
+
+.editSidebar input {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-radius: 50px;
+  font-size: 1.25vh;
+  padding: 15px;
+}
+
+.editSidebar button {
+  font-size: 1.25vh;
+  padding: 20px;
+  border-radius: 50px;
+  border: none;
+  width: 50%;
+  margin-top: 10px;
 }
